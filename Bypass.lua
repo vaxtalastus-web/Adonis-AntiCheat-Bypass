@@ -1,3 +1,6 @@
+pcall(function()
+	game:GetService("ScriptContext"):SetTimeout(1)
+end)
 for i, v in pairs(getgc(true)) do
 	pcall(function()
 		if rawget(v, "Detected") then
