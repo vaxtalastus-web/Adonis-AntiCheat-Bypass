@@ -20,10 +20,6 @@ Both of these modules will rely on the same function to report detections to the
 
 When called, it will call the network **Send** function to let the server know about the detection. Half a second after reporting the detection, it will check if the caller wanted to kick you or crash your game.
 
-This works because the **Detected** function is a *lua closure*. Depending on how your executor performs hooking, the function itself will likely have to be modified in some way to make it jump to the desired detour (which might be a wrapped *c closure* automatically on some executors) when called. Whether this detection is effective or not will depend on your executor and their method of hooking lua closures. When Adonis detects any change with the functions info, it will crash itself:
-
-<img width="881" height="308" alt="Hook Detection Code" src="https://github.com/user-attachments/assets/408bfa5b-549e-4038-adf6-daf4fbefa79c" />
-
 # Why It's Effective
 
 Adonis has many, many, detections in both it's **Anti** and **Anti-Cheat** module. Instead of targeting each detection, we can simply target the code responsible for the consequences & snitching.
